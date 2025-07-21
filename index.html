@@ -1,362 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Layaly Carthage</title>
-    <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
-    <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png" />
-    <link rel="manifest" href="favicon_io/site.webmanifest" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: sans-serif;
-        background-color: #e8f0fe;
-        color: #222;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Layaly Carthage</title>
+  <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="favicon_io/apple-touch-icon.png" />
+  <link rel="manifest" href="favicon_io/site.webmanifest" />
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #e8f0fe;
+      color: #222;
+    }
 
-      header {
-        background: linear-gradient(90deg, #3b7a1f, #6ca447);
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        color: white;
-        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-        position: relative;
-      }
+    header {
+      background: linear-gradient(90deg, #3b7a1f, #6ca447);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: white;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
 
-      .logo {
-        width: 100px;
-        height: auto;
-        margin-bottom: 10px;
-        filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.3));
-      }
+    .logo {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
 
-      .company-name {
-        font-size: 22px;
-        font-weight: bold;
-        margin: 4px 0;
-      }
+    .company-name {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 4px 0;
+    }
 
-      .tagline {
-        font-size: 15px;
-        font-weight: 500;
-      }
+    .tagline {
+      font-size: 15px;
+      font-weight: 500;
+    }
 
-      .subtagline {
-        font-size: 14px;
-        margin-bottom: 5px;
-      }
+    .subtagline {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
 
-      .trn {
-        font-size: 13px;
-        opacity: 0.8;
-      }
+    .trn {
+      font-size: 13px;
+      opacity: 0.8;
+    }
 
-      .foodwatch-badge {
-        position: absolute;
-        right: 20px;
-        top: 20px;
-        background: rgba(0, 0, 255, 0.7);
-        border-radius: 50%;
-        width: 60px;
-        height: 60px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 11px;
-        font-weight: 600;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-        line-height: 1.1;
-        cursor: default;
-      }
+    .foodwatch-badge {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 80px;
+      height: auto;
+      text-align: center;
+    }
 
-      nav {
-        background: #3b7a1f;
-        padding: 10px 0;
-        text-align: center;
-      }
+    .foodwatch-badge img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: block;
+    }
 
-      nav a {
-        color: white;
-        margin: 0 15px;
-        text-decoration: none;
-        font-weight: 600;
-        font-size: 14px;
-      }
+    .foodwatch-badge div {
+      font-size: 9px;
+      color: #fff;
+      margin-top: 4px;
+      line-height: 1.2;
+    }
 
-      nav a:hover {
-        color: #c7e2a3;
-      }
+    nav {
+      background: #3b7a1f;
+      padding: 10px 0;
+      text-align: center;
+    }
 
-      .hero {
-        position: relative;
-        height: 80vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        background-color: #4caf50;
-        color: white;
-        overflow: hidden;
-      }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
 
-      .hero img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        opacity: 0.5;
-        z-index: 0;
-      }
+    nav a:hover {
+      color: #c7e2a3;
+    }
 
-      .hero-content {
-        position: relative;
-        z-index: 1;
-        padding: 0 20px;
-        max-width: 800px;
-      }
+    .hero {
+      position: relative;
+      height: 80vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: #4caf50;
+      color: white;
+      overflow: hidden;
+    }
 
-      .hero-content h2 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: white;
-      }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: 0;
+    }
 
-      .hero-content p {
-        font-size: 12pt;
-        font-family: 'Century Gothic', sans-serif;
-        font-weight: bold;
-        color: #294B58;
-        margin-bottom: 30px;
-        line-height: 1.4;
-      }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+      max-width: 800px;
+    }
 
-      .btn-browse {
-        background-color: #2d5d16;
-        color: white;
-        padding: 12px 30px;
-        font-weight: bold;
-        font-size: 1rem;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        text-decoration: none;
-      }
+    .hero-content h2 {
+  font-size: 2.rem;
+  margin-bottom: 20px;
+  color: white;
+}
 
-      .btn-browse:hover {
-        background-color: #244812;
-      }
+    }
 
-      section {
-        padding: 50px 20px;
-        max-width: 900px;
-        margin: 0 auto;
-        background: white;
-        margin-bottom: 30px;
-        border-radius: 8px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        color: #444;
-        font-size: 16px;
-        line-height: 1.6;
-      }
+    .hero-content p {
+      font-size: 12pt;
+      font-family: 'Century Gothic', sans-serif;
+      font-weight: bold;
+      color: #294B58;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
 
-      section h2,
-      section h3 {
-        color: #3b7a1f;
-        margin-bottom: 20px;
-        font-weight: bold;
-      }
+    .btn-browse {
+      background-color: #2d5d16;
+      color: white;
+      padding: 12px 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
 
-      ul {
-        list-style-type: disc;
-        padding-left: 20px;
-        color: #555;
-        margin-bottom: 20px;
-      }
+    .btn-browse:hover {
+      background-color: #244812;
+    }
 
-      ul li {
-        margin-bottom: 8px;
-        font-size: 15px;
-      }
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      color: #444;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
+    section h2,
+    section h3 {
+      color: #3b7a1f;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .two-column img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .two-column .text {
+      max-width: 400px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .products-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact {
+      background: #3b7a1f;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 8px;
+    }
+
+    .contact p,
+    .contact a {
+      color: white;
+      margin: 6px 0;
+      font-size: 16px;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 20px;
+      background: white;
+      color: #3b7a1f;
+      padding: 12px 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      background: #c7e2a3;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #25D366;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-button img {
+      width: 60px;
+      height: 60px;
+    }
+
+    footer {
+      background: #3b7a1f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    @media (max-width: 768px) {
       .two-column {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
-        align-items: center;
-        justify-content: center;
+        flex-direction: column;
       }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/vBs01SnL/Screenshot-2025-07-19-180007.png" alt="Layaly Carthage" class="logo" />
+    <p class="company-name">LAYALY CARTHAGE FOODSTUFF LLC</p>
+    <p class="tagline">Trusted Fresh Produce Partner Since 2019</p>
+    <p class="subtagline">Serving prestigious Dubai Horeca clients with reliability</p>
+    <p class="trn">TRN 100613721800003</p>
 
-      .two-column img {
-        max-width: 400px;
-        width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+    <div class="foodwatch-badge">
+      <a href="https://ibb.co/SwWChqNW" target="_blank">
+        <img src="https://i.ibb.co/HT18Wm71/hq720.jpg" alt="Foodwatch Certified" />
+      </a>
+      <div>FOODWATCH<br />Registration  Dubai Municipality</div>
+    </div>
+  </header>
 
-      .two-column .text {
-        max-width: 400px;
-      }
+  <nav>
+    <a href="#hero">Home</a>
+    <a href="#welcome">Welcome</a>
+    <a href="#about">About Us</a>
+    <a href="Foodservice-catalogue.pdf" target="_blank" rel="noopener noreferrer">Catalogue</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-      .products-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 20px;
-      }
+  <section id="hero" class="hero">
+    <img src="https://i.ibb.co/Qjb4rJdB/485085582-1111522120778815-7918135131919778070-n.jpg" alt="Hero Background" />
+    <div class="hero-content">
+      <h2>Fresh Produce Delivered Daily</h2>
+      <p>.</p>
+      
+    </div>
+  </section>
 
-      .products-grid img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      }
+  <section id="welcome">
+    <h2>Welcome to Layaly Carthage</h2>
+    <p>Premium fruits and vegetables. Wholesale and Horeca distribution in the UAE. Quality, reliability, freshness.</p>
+    <p>We source directly from trusted farms and deliver with a commitment to excellence. Our dedicated team ensures timely supply to meet your business needs.</p>
+  </section>
 
-      .contact {
-        background: #3b7a1f;
-        color: white;
-        text-align: center;
-        padding: 40px 20px;
-        border-radius: 8px;
-      }
+  <section id="about" class="two-column">
+    <img src="https://i.postimg.cc/1R0Jxxtr/delivery.jpg" alt="Delivery Service" />
+    <div class="text">
+      <h3>About Us</h3>
+      <p>Layaly Carthage is a trusted UAE distributor of fresh fruits and vegetables, serving professionals and the Horeca sector. We offer:</p>
+      <ul>
+        <li>Direct farm sourcing</li>
+        <li>Cold chain logistics</li>
+        <li>Same-day delivery</li>
+        <li>Bulk pricing</li>
+      </ul>
+    </div>
+  </section>
 
-      .contact p,
-      .contact a {
-        color: white;
-        margin: 6px 0;
-        font-size: 16px;
-      }
+  <section class="two-column" style="flex-direction: row-reverse;">
+    <div class="text">
+      <h3>Serving the Horeca Sector</h3>
+      <p>Bulk, fresh, and fast. Trusted by restaurants, hotels, and kitchens across the UAE.</p>
+      <p>Fresh Produce Delivered Daily<br />Wholesale and Horeca fresh fruits & vegetables across the UAE.</p>
+    </div>
+    <img src="https://i.postimg.cc/JzfFQN0T/images-1.png" alt="Horeca Supply" />
+  </section>
 
-      .contact a {
-        display: inline-block;
-        margin-top: 20px;
-        background: white;
-        color: #3b7a1f;
-        padding: 12px 30px;
-        font-weight: bold;
-        font-size: 1rem;
-        border-radius: 6px;
-        text-decoration: none;
-      }
+  <section id="products">
+    <h3>Top Products</h3>
+    <p>Freshness you can taste. Quality you can count on.</p>
+    <div class="products-grid">
+      <img src="https://i.ibb.co/4RPSKjg5/images-1.jpg" alt="Product 1" />
+      <img src="https://i.ibb.co/kscspNc5/Is-Fresh-Produce-Safe-to-Eat-Small-compressor.jpg" alt="Product 2" />
+      <img src="https://i.ibb.co/6cY8Mj03/images-1.jpg" alt="Product 3" />
+    </div>
+  </section>
 
-      .contact a:hover {
-        background: #c7e2a3;
-      }
+  <section id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <p>Layaly Carthage Foodstuff LLC</p>
+    <p>Shop No-69, Wholesale Building No-2, Central Fruits and Vegetables Market Dubai</p>
+    <p>Phone: +971 52 394 4145</p>
+    <p>Email: info@layaly-carthage.com</p>
+    <a href="mailto:info@layaly-carthage.com">Email Us</a>
+    <p>
+      <a href="https://www.facebook.com/photo/?fbid=980998050497890&set=a.980999413831087" target="_blank" style="color: blue; text-decoration: underline;">Facebook</a>
+    </p>
+  </section>
 
-      .whatsapp-button {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
-        background-color: #25D366;
-        padding: 10px;
-        border-radius: 50%;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      }
+  <a href="https://wa.me/971563078375" target="_blank" class="whatsapp-button">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+  </a>
 
-      .whatsapp-button img {
-        width: 60px;
-        height: 60px;
-      }
-
-      footer {
-        background: #3b7a1f;
-        color: white;
-        text-align: center;
-        padding: 20px;
-        font-size: 14px;
-        margin-top: 40px;
-        border-radius: 0 0 8px 8px;
-      }
-
-      @media (max-width: 768px) {
-        .two-column {
-          flex-direction: column;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <header>
-      <img src="https://i.postimg.cc/vBs01SnL/Screenshot-2025-07-19-180007.png" alt="Layaly Carthage" class="logo" />
-      <p class="company-name">LAYALY CARTHAGE FOODSTUFF LLC</p>
-      <p class="tagline">Trusted Fresh Produce Partner Since 2019</p>
-      <p class="subtagline">Serving prestigious Dubai Horeca clients with reliability</p>
-      <p class="trn">TRN 100613721800003</p>
-      <div class="foodwatch-badge">Foodwatch<br />Dubai<br />Certified</div>
-    </header>
-    <nav>
-      <a href="#hero">Home</a>
-      <a href="#welcome">Welcome</a>
-      <a href="#about">About Us</a>
-      <a href="Foodservice-catalogue.pdf" target="_blank" rel="noopener noreferrer">Catalogue</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <section id="hero" class="hero">
-      <img src="https://i.ibb.co/Qjb4rJdB/485085582-1111522120778815-7918135131919778070-n.jpg" alt="Hero Background" />
-      <div class="hero-content">
-        <h2>Fresh Produce Delivered Daily</h2>
-        <p>.</p>
-        <a href="#products" class="btn-browse">Browse</a>
-      </div>
-    </section>
-    <section id="welcome">
-      <h2>Welcome to Layaly Carthage</h2>
-      <p>Premium fruits and vegetables. Wholesale and Horeca distribution in the UAE. Quality, reliability, freshness.</p>
-      <p>We source directly from trusted farms and deliver with a commitment to excellence. Our dedicated team ensures timely supply to meet your business needs.</p>
-    </section>
-    <section id="about" class="two-column">
-      <img src="https://i.postimg.cc/1R0Jxxtr/delivery.jpg" alt="Delivery Service" />
-      <div class="text">
-        <h3>About Us</h3>
-        <p>Layaly Carthage is a trusted UAE distributor of fresh fruits and vegetables, serving professionals and the Horeca sector. We offer:</p>
-        <ul>
-          <li>Direct farm sourcing</li>
-          <li>Cold chain logistics</li>
-          <li>Same-day delivery</li>
-          <li>Bulk pricing</li>
-        </ul>
-      </div>
-    </section>
-    <section class="two-column" style="flex-direction: row-reverse;">
-      <div class="text">
-        <h3>Serving the Horeca Sector</h3>
-        <p>Bulk, fresh, and fast. Trusted by restaurants, hotels, and kitchens across the UAE.</p>
-        <p>Fresh Produce Delivered Daily <br />Wholesale and Horeca fresh fruits & vegetables across the UAE. </p>
-      </div>
-      <img src="https://i.postimg.cc/JzfFQN0T/images-1.png" alt="Horeca Supply" />
-    </section>
-    <section id="products">
-      <h3>Top Products</h3>
-      <p>Freshness you can taste. Quality you can count on.</p>
-      <div class="products-grid">
-        <img src="https://i.ibb.co/4RPSKjg5/images-1.jpg" alt="Product 1" />
-        <img src="https://i.ibb.co/kscspNc5/Is-Fresh-Produce-Safe-to-Eat-Small-compressor.jpg" alt="Product 2" />
-        <img src="https://i.ibb.co/6cY8Mj03/images-1.jpg" alt="Product 3" />
-      </div>
-    </section>
-    <section id="contact" class="contact">
-      <h3>Contact Us</h3>
-      <p>Layaly Carthage Foodstuff LLC</p>
-      <p>Shop No-69, Wholesale Building No-2, Central Fruits and Vegetables Market Dubai</p>
-      <p>Phone: +971 52 394 4145</p>
-      <p>Email: info@layalycarthage.com</p>
-      <a href="mailto:info@layalycarthage.com">Email Us</a>
-      <p>
-        <a href="https://www.facebook.com/photo/?fbid=980998050497890&set=a.980999413831087" target="_blank" style="color: blue; text-decoration: underline;">Facebook</a>
-      </p>
-    </section>
-    <a href="https://wa.me/971563078375" target="_blank" class="whatsapp-button">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
-    </a>
-    <footer> &copy; 2024 Layaly Carthage Foodstuff LLC. All rights reserved. </footer>
-  </body>
+  <footer>
+    &copy; 2024 Layaly Carthage Foodstuff LLC. All rights reserved.
+  </footer>
+</body>
 </html>
