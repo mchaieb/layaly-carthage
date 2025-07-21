@@ -2,167 +2,339 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Layaly Carthage</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.1/dist/tailwind.min.css" rel="stylesheet" />
-</head>
-<body class="bg-white text-gray-900">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background-color: #e8f0fe;
+      color: #222;
+    }
 
-  <!-- Header -->
-  <header class="bg-green-900 text-white px-6 py-4 shadow-md">
-    <div class="flex items-center justify-between">
-      <img src="https://i.postimg.cc/vBs01SnL/Screenshot-2025-07-19-180007.png" alt="Logo" class="h-4 w-auto object-contain" />
-      <nav class="flex space-x-6 text-sm font-semibold">
-        <a href="#about" class="hover:text-green-300">About Us</a>
-        <a href="#products" class="hover:text-green-300">Products</a>
-        <a href="#contact" class="hover:text-green-300">Contact</a>
-      </nav>
-    </div>
+    header {
+      background: white;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 8px;
+    }
+
+    .company-name {
+      font-weight: bold;
+      font-size: 18px;
+      margin: 0;
+      color: #222;
+    }
+
+    .trn {
+      font-size: 14px;
+      color: #555;
+      margin: 2px 0 0 0;
+    }
+
+    nav {
+      background: #2f7a27;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: #a0d468;
+    }
+
+    .hero {
+      position: relative;
+      height: 30vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+      background-color: #4caf50;
+      color: white;
+    }
+
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding: 0 20px;
+      max-width: 800px;
+    }
+
+    .hero-content h2,
+    .hero-content p {
+      color: white;
+    }
+
+    .hero-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      font-size: 1.25rem;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+
+    .btn-browse {
+      background-color: #3b7a1f;
+      color: white;
+      padding: 12px 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-browse:hover {
+      background-color: #2d5d16;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      background: white;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    }
+
+    section h2, section h3 {
+      color: #2f7a27;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+
+    section p {
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+      font-size: 15px;
+    }
+
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .two-column img {
+      max-width: 400px;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .two-column .text {
+      max-width: 400px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .products-grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .contact {
+      background: #2f7a27;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      border-radius: 8px;
+    }
+
+    .contact p {
+      margin: 6px 0;
+      font-size: 16px;
+      color: white;
+    }
+
+    .contact a {
+      display: inline-block;
+      margin-top: 20px;
+      background: white;
+      color: #2f7a27;
+      padding: 12px 30px;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      background: #c7e2a3;
+    }
+
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+      background-color: #25D366;
+      padding: 10px;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .whatsapp-button img {
+      width: 60px;
+      height: 60px;
+    }
+
+    footer {
+      background: #2f7a27;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      margin-top: 40px;
+      border-radius: 0 0 8px 8px;
+    }
+
+    @media (max-width: 768px) {
+      .two-column {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.postimg.cc/vBs01SnL/Screenshot-2025-07-19-180007.png" alt="Layaly Carthage" class="logo" />
+    <p class="company-name">LAYALY CARTHAGE FOODSTUFF LLC</p>
+    <p class="trn">TRN 100613721800003</p>
   </header>
 
-  <!-- Hero with Banner -->
-  <section class="relative h-[80vh] bg-white flex items-center justify-center px-6">
-    <img 
-      src="https://i.postimg.cc/JzfFQN0T/images-1.png" 
-      alt="Layaly Carthage Banner" 
-      class="w-full h-full object-contain" 
-    />
-  </section>
+  <nav>
+    <a href="#hero" aria-label="Home">Home</a>
+    <a href="#welcome" aria-label="Welcome section">Welcome</a>
+    <a href="#about" aria-label="About us section">About Us</a>
+    <a href="#products" aria-label="Products section">Products</a>
+    <a href="#contact" aria-label="Contact section">Contact</a>
+  </nav>
 
-  <!-- About -->
-  <section id="about" class="py-16 px-6 bg-gray-100">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <img
-        src="https://i.postimg.cc/VS3BJf59/bowl-fruit-vegetables-with-knife-fork-520665-14602.avif"
-        alt="About image"
-        class="rounded-lg shadow-md"
-      />
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Who We Are</h2>
-        <p class="mb-4 text-lg">
-          We specialize in sourcing and distributing fresh fruits and vegetables. Whether you're a home buyer,
-          restaurant, or wholesaler — we guarantee freshness, quality, and fast delivery.
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-base">
-          <li>Direct partnerships with farmers</li>
-          <li>Cold chain logistics</li>
-          <li>Same-day dispatch</li>
-        </ul>
-      </div>
+  <section id="hero" class="hero">
+    <img src="https://i.ibb.co/Qjb4rJdB/485085582-1111522120778815-7918135131919778070-n.jpg" alt="Hero Background" />
+    <div class="hero-content">
+      <h2>Fresh Produce Delivered Daily</h2>
+      <p>Wholesale and Horeca fresh fruits & vegetables across the UAE.</p>
+      <a href="#products" class="btn-browse">Browse</a>
     </div>
   </section>
 
-  <!-- Why Choose Us -->
-  <section class="py-16 px-6 bg-white">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Why Choose Us?</h2>
-        <p class="mb-4 text-lg">
-          Our competitive prices and professional service make us a trusted name in the UAE produce market.
-        </p>
-        <p class="mb-4 text-lg">
-          Our facilities ensure hygiene and quality, and our customer support team helps you every step of the way.
-        </p>
-        <p class="mb-4 text-lg font-semibold">
-          We are proud to be part of Horeca with all health and hygiene certified from Watchfood Dubai.
-        </p>
-      </div>
-      <img
-        src="https://i.postimg.cc/XrqzFvNt/Global-Trade-in-Vegetables-and-Fruits-1.jpg"
-        alt="Why Choose Us"
-        class="rounded-lg shadow-md"
-      />
+  <section id="welcome">
+    <h2>Welcome to Layaly Carthage</h2>
+    <p>Premium fruits and vegetables. Wholesale and Horeca distribution in the UAE. Quality, reliability, freshness.</p>
+  </section>
+
+  <section id="about" class="two-column">
+    <img src="https://i.postimg.cc/1R0Jxxtr/delivery.jpg" alt="Delivery Service" />
+    <div class="text">
+      <h3>About Us</h3>
+      <p>Layaly Carthage is a trusted UAE distributor of fresh fruits and vegetables, serving professionals and the Horeca sector. We offer:</p>
+      <ul>
+        <li>Direct farm sourcing</li>
+        <li>Cold chain logistics</li>
+        <li>Same-day delivery</li>
+        <li>Bulk pricing</li>
+      </ul>
     </div>
   </section>
 
-  <!-- Horeca Clients -->
-  <section class="py-16 px-6 bg-gray-100">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-      <div>
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Serving the Horeca Sector</h2>
-        <p class="mb-4 text-lg">
-          We work directly with hotels, restaurants, cafes, and catering companies across the UAE.
-          Our clients rely on us for consistent quality, early morning deliveries, and excellent service.
-        </p>
-        <ul class="list-disc ml-6 space-y-2 text-base">
-          <li>Daily fresh supply for kitchens and chefs</li>
-          <li>Bulk packaging, sorted and labeled</li>
-          <li>Health and hygiene certified by Watchfood Dubai</li>
-          <li>Same-day or scheduled delivery to all zones</li>
-          <li>WhatsApp or phone-based reordering for convenience</li>
-        </ul>
-        <p class="mt-4 text-lg font-semibold">
-          We’re not just a supplier — we’re a partner for your operations.
-        </p>
-      </div>
-      <img
-        src="https://i.postimg.cc/1R0Jxxtr/delivery.jpg"
-        alt="Horeca Clients"
-        class="rounded-lg shadow-md"
-      />
+  <section class="two-column" style="flex-direction: row-reverse;">
+    <div class="text">
+      <h3>Serving the Horeca Sector</h3>
+      <p>Bulk, fresh, and fast. Trusted by restaurants, hotels, and kitchens across the UAE.</p>
+    </div>
+    <img src="https://i.postimg.cc/JzfFQN0T/images-1.png" alt="Horeca Supply" />
+  </section>
+
+  <section id="products">
+    <h3>Top Products</h3>
+    <p>Freshness you can taste. Quality you can count on.</p>
+    <div class="products-grid">
+      <img src="https://i.ibb.co/4RPSKjg5/images-1.jpg" alt="Product 1" />
+      <img src="https://i.ibb.co/kscspNc5/Is-Fresh-Produce-Safe-to-Eat-Small-compressor.jpg" alt="Product 2" />
+      <img src="https://i.ibb.co/6cY8Mj03/images-1.jpg" alt="Product 3" />
+     
     </div>
   </section>
 
-  <!-- Products -->
-  <section id="products" class="py-16 px-6 bg-gray-100">
-    <div class="max-w-6xl mx-auto text-center mb-12">
-      <h2 class="text-3xl md:text-4xl font-bold mb-2">Top Products</h2>
-      <p class="text-lg text-gray-700">Freshness you can taste, quality you can trust.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
-      <img
-        src="https://i.postimg.cc/MfYy315t/20230927-NH-Sujets-450x290-Marienkaefer.jpg"
-        class="w-full h-64 object-cover rounded shadow"
-        alt="Product 1"
-      />
-      <img
-        src="https://i.postimg.cc/kRCQyTQB/images.jpg"
-        class="w-full h-64 object-cover rounded shadow"
-        alt="Product 2"
-      />
-      <img
-        src="https://i.postimg.cc/9zPKHSNg/istockphoto-491837928-612x612.jpg"
-        class="w-full h-64 object-cover rounded shadow"
-        alt="Product 3"
-      />
-      <img
-        src="https://i.postimg.cc/G9nVNrzs/Is-Fresh-Produce-Safe-to-Eat-Small-compressor.jpg"
-        class="w-full h-64 object-cover rounded shadow"
-        alt="Product 4"
-      />
-    </div>
+  <section id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <p>Layaly Carthage Foodstuff LLC</p>
+    <p>Shop No-69, Wholesale Building No-2, Central Fruits and Vegetables Market Dubai</p>
+    <p>Phone: +971 52 394 4145</p>
+    <p>Email: info@layaly-carthage.com</p>
+    <a href="mailto:info@layal-ycarthage.com">Email Us</a>
+    <p><a href="https://www.facebook.com/photo/?fbid=980998050497890&set=a.980999413831087" target="_blank" style="color: blue; text-decoration: underline;">Facebook</a></p>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="bg-green-700 text-white py-16 px-6">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in Touch</h2>
-      <p class="mb-3 text-lg">Shop No-69, Wholesale Building No-2, Central Fruits and Vegetables Market</p>
-      <p class="mb-1">+971 50 250 7307</p>
-      <p class="mb-1">+971 56 307 8375</p>
-      <p class="mb-6">+971 52 394 4145</p>
-      <a href="mailto:info@layaly-carthage.com" class="bg-white text-green-800 font-bold py-3 px-6 rounded hover:bg-gray-100">Email Us</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-6 text-center text-sm">
-    <p>© 2024 Layaly Carthage. All rights reserved.</p>
-  </footer>
-
-  <!-- WhatsApp Floating Button -->
-  <a
-    href="https://wa.me/971523944145"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="fixed bottom-6 right-6 z-50 bg-green-100 p-2 rounded-full shadow-lg"
-  >
-    <img
-      src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
-      alt="Chat on WhatsApp"
-      class="w-10 h-10"
-    />
+  <a href="https://wa.me/971563078375" target="_blank" rel="noopener noreferrer" class="whatsapp-button" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
   </a>
+
+  <footer>
+    &copy; 2024 Layaly Carthage Foodstuff LLC. All rights reserved.
+  </footer>
 
 </body>
 </html>
